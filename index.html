@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bring JJ Home</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background-hearts"></div>
+
+  <main class="app">
+    <section id="introScreen" class="screen active">
+      <div class="card intro-card">
+        <p class="tiny-text">just a few questions...</p>
+        <h1>You weren’t expecting this… were you?</h1>
+        <p class="subtext">
+          Answer honestly. Don’t think too hard about them.
+        </p>
+        <button id="startBtn" class="btn primary">Open</button>
+      </div>
+    </section>
+
+    <section id="questionScreen" class="screen">
+      <div class="card question-card">
+        <p class="progress" id="progressText">Question 1 of 10</p>
+        <h2 id="questionText"></h2>
+        <div class="button-row">
+          <button id="yesBtn" class="btn answer-btn">Yes</button>
+          <button id="noBtn" class="btn answer-btn secondary">No</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="endingScreen" class="screen">
+      <div class="card ending-card">
+        <div id="envelopeWrapper" class="envelope-wrapper hidden">
+          <div class="envelope">
+            <div class="envelope-flap"></div>
+            <div class="envelope-body"></div>
+          </div>
+
+          <div class="photos">
+            <img src="assets/photos/photo1.jpg" alt="Memory photo 1" class="photo photo-1" />
+            <img src="assets/photos/photo2.jpg" alt="Memory photo 2" class="photo photo-2" />
+            <img src="assets/photos/photo3.jpg" alt="Memory photo 3" class="photo photo-3" />
+            <img src="assets/photos/photo4.jpg" alt="Memory photo 4" class="photo photo-4" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="messageModal" class="modal hidden">
+    <div class="modal-content">
+      <p class="modal-line small">I’ve been thinking…</p>
+      <h3>I'm sorry, please call me</h3>
+      <div class="modal-actions">
+        <a id="callBtn" href="tel:+10000000000" class="btn primary">Call me</a>
+        <button id="closeModalBtn" class="btn secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="youtubePlayer"></div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="script.js"></script>
+</body>
+</html>
