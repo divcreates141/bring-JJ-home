@@ -32,7 +32,7 @@ const callBtn = document.getElementById("callBtn");
 const bgMusic = document.getElementById("bgMusic");
 
 // CHANGE THIS NUMBER
-callBtn.href = "tel:+10000000000";
+callBtn.href = "tel:+16477469339";
 
 function showScreen(screenToShow) {
   [introScreen, questionScreen, endingScreen].forEach(screen => {
