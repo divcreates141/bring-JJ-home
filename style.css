@@ -117,8 +117,8 @@ body {
 
 .envelope-wrapper {
   position: relative;
-  width: 320px;
-  height: 300px;
+  width: 500px;
+  height: 320px;
   margin: 0 auto;
 }
 
@@ -162,42 +162,42 @@ body {
 
 .photos {
   position: absolute;
-  inset: 0;
+  left: 50%;
+  top: -40px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 18px;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 5;
+  width: max-content;
 }
 
 .photo {
-  position: absolute;
-  width: 170px;
-  height: 210px;
+  width: 140px;
+  height: 180px;
   object-fit: cover;
   border-radius: 18px;
   border: 6px solid white;
   box-shadow: 0 12px 24px rgba(77, 44, 56, 0.22);
-  left: 50%;
-  bottom: 45px;
-  transform: translateX(-50%) translateY(40px) scale(0.8);
   opacity: 0;
-  transition: all 0.9s ease;
+  transform: translateY(40px) scale(0.9);
+  transition: all 0.8s ease;
 }
 
 .photos.show .photo-1 {
   opacity: 1;
-  transform: translateX(-145px) translateY(-45px) rotate(-10deg);
+  transform: translateY(0) rotate(-6deg);
 }
 
 .photos.show .photo-2 {
   opacity: 1;
-  transform: translateX(-50%) translateY(-95px) rotate(-2deg);
+  transform: translateY(-18px) rotate(0deg);
 }
 
 .photos.show .photo-3 {
   opacity: 1;
-  transform: translateX(35px) translateY(-45px) rotate(9deg);
-}
-
-.photos.show .photo-4 {
-  opacity: 1;
-  transform: translateX(-50%) translateY(10px) rotate(3deg);
+  transform: translateY(0) rotate(6deg);
 }
 
 .modal {
@@ -208,6 +208,10 @@ body {
   place-items: center;
   padding: 20px;
   z-index: 50;
+}
+
+.modal.hidden {
+  display: none;
 }
 
 .modal-content {
@@ -235,16 +239,25 @@ body {
     padding: 30px 20px;
   }
 
+  .photos {
+    gap: 10px;
+    top: -20px;
+  }
+
   .photo {
-    width: 140px;
-    height: 180px;
+    width: 95px;
+    height: 130px;
   }
 
   .photos.show .photo-1 {
-    transform: translateX(-120px) translateY(-35px) rotate(-10deg);
+    transform: translateY(0) rotate(-4deg);
+  }
+
+  .photos.show .photo-2 {
+    transform: translateY(-12px) rotate(0deg);
   }
 
   .photos.show .photo-3 {
-    transform: translateX(10px) translateY(-35px) rotate(9deg);
+    transform: translateY(0) rotate(4deg);
   }
 }

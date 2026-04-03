@@ -13,7 +13,6 @@ const questions = [
 
 const answers = [];
 let currentQuestion = 0;
-let player;
 
 const introScreen = document.getElementById("introScreen");
 const questionScreen = document.getElementById("questionScreen");
@@ -30,6 +29,7 @@ const envelopeWrapper = document.getElementById("envelopeWrapper");
 const messageModal = document.getElementById("messageModal");
 const closeModalBtn = document.getElementById("closeModalBtn");
 const callBtn = document.getElementById("callBtn");
+const bgMusic = document.getElementById("bgMusic");
 
 // CHANGE THIS NUMBER
 callBtn.href = "tel:+10000000000";
@@ -80,8 +80,23 @@ function showEndingSequence() {
     lowerMusicVolume();
     messageModal.classList.remove("hidden");
   }, 3000);
+}
 
-  console.log("Submitted answers:", answers);
+function startMusic() {
+  if (!bgMusic) return;
+
+  bgMusic.volume = 0.4;
+  bgMusic.play().then(() => {
+    console.log("Music started");
+  }).catch(error => {
+    console.log("Music failed:", error);
+  });
+}
+
+function lowerMusicVolume() {
+  if (bgMusic) {
+    bgMusic.volume = 0.18;
+  }
 }
 
 startBtn.addEventListener("click", () => {
@@ -96,39 +111,3 @@ noBtn.addEventListener("click", () => handleAnswer("No"));
 closeModalBtn.addEventListener("click", () => {
   messageModal.classList.add("hidden");
 });
-
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player("youtubePlayer", {
-    height: "0",
-    width: "0",
-    videoId: "yH00GFHjYds",
-    playerVars: {
-      autoplay: 0,
-      controls: 0,
-      disablekb: 1,
-      fs: 0,
-      modestbranding: 1,
-      loop: 1,
-      playlist: "yH00GFHjYds",
-      start: 0
-    },
-    events: {
-      onReady: () => {}
-    }
-  });
-}
-
-window.onYouTubeIframeAPIReady = onYouTubeIframeAPIReady;
-
-function startMusic() {
-  if (player && typeof player.playVideo === "function") {
-    player.playVideo();
-    player.setVolume(35);
-  }
-}
-
-function lowerMusicVolume() {
-  if (player && typeof player.setVolume === "function") {
-    player.setVolume(18);
-  }
-}
